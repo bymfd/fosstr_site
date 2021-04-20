@@ -1,4 +1,0 @@
-django
-django-cleanup
-django-crispy-forms
-django-ckeditor
