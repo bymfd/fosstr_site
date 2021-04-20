@@ -73,8 +73,8 @@ class Homepage extends Controller
       }
 
       Mail::send([],[], function($message) use($request){
-        $message->from('iletisim@blogsitesi.com','Blog Sitesi');
-        $message->to('furkangurel@hotmail.com');
+        $message->from('iletisim.noreply@fosstr.com','fosstr site');
+        $message->to('info@fosstr.com');
         $message->setBody(' Mesajı Gönderen :'.$request->name.'<br />
                     Mesajı Gönderen Mail :'.$request->email.'<br />
                     Mesaj Konusu : '.$request->topic.'<br />
