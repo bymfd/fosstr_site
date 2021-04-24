@@ -72,23 +72,12 @@ class Homepage extends Controller
         return redirect()->route('contact')->withErrors($validate)->withInput();
       }
 
-      Mail::send([],[], function($message) use($request){
-        $message->from('iletisim.noreply@fosstr.com','fosstr site');
-        $message->to('info@fosstr.com');
-        $message->setBody(' Mesajı Gönderen :'.$request->name.'<br />
-                    Mesajı Gönderen Mail :'.$request->email.'<br />
-                    Mesaj Konusu : '.$request->topic.'<br />
-                    Mesaj :'.$request->message.'<br /><br />
-                    Mesaj Gönderilme Tarihi : '.now().'','text/html');
-        $message->subject($request->name. ' iletişimden mesaj gönderdi!');
-      });
-
-      // $contact = new Contact;
-      // $contact->name=$request->name;
-      // $contact->email=$request->email;
-      // $contact->topic=$request->topic;
-      // $contact->message=$request->message;
-      // $contact->save();
+       $contact = new Contact;
+       $contact->name=$request->name;
+       $contact->email=$request->email;
+       $contact->topic=$request->topic;
+       $contact->message=$request->message;
+       $contact->save();
       return redirect()->route('contact')->with('success','Mesajınız bize iletildi. Teşekkür ederiz!');
     }
 }
